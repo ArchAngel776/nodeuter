@@ -1,4 +1,4 @@
-# nodeuter
+# Nodeuter
 
 Nodeuter is a compact TypeScript backend foundation for Node.js. It is built
 around a small source tree, strict type checking, Babel-based compilation, and
