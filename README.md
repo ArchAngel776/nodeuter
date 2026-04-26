@@ -7,10 +7,10 @@ modern JavaScript decorators.
 ## Tooling
 
 - TypeScript for type checking and declaration output
-- Babel for JavaScript builds
+- Babel for JavaScript builds (`babel.config.json`)
 - Stage 3 decorators via `@babel/plugin-proposal-decorators` (`2023-11`)
 - `babel-plugin-typescript-path-aliases` for `tsconfig.json` path aliases
-- ESLint flat config with `typescript-eslint`
+- ESLint YAML config with `typescript-eslint`
 
 ## Commands
 

@@ -1,29 +1,29 @@
-module.exports = {
-  presets: [
+{
+  "presets": [
     [
       "@babel/preset-env",
       {
-        targets: {
-          node: "20"
+        "targets": {
+          "node": "20"
         },
-        modules: "commonjs"
+        "modules": "commonjs"
       }
     ],
     [
       "@babel/preset-typescript",
       {
-        allowDeclareFields: true,
-        optimizeConstEnums: true
+        "allowDeclareFields": true,
+        "optimizeConstEnums": true
       }
     ]
   ],
-  plugins: [
+  "plugins": [
     "babel-plugin-typescript-path-aliases",
     [
       "@babel/plugin-proposal-decorators",
       {
-        version: "2023-11"
+        "version": "2023-11"
       }
     ]
   ]
-};
+}
