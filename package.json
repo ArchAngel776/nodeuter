@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "description": "A compact, elegant TypeScript backend foundation for Node.js.",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "bin": "dist/bin.js",
+  "types": "@types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "@types"
   ],
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist @types",
     "build": "yarn clean && yarn build:js && yarn build:types",
     "build:js": "babel src --out-dir dist --extensions .ts --source-maps",
     "build:types": "tsc --emitDeclarationOnly",
-    "dev": "yarn build && node dist/bin.js",
+    "dev": "yarn build && node dist/index.js",
     "lint": "eslint . --ext .ts",
     "typecheck": "tsc --noEmit"
   },
