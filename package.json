@@ -15,6 +15,7 @@
     "build:types": "tsc --emitDeclarationOnly",
     "dev": "yarn build && NODE_ENV=development node --watch dist/index.js",
     "prod": "yarn build && NODE_ENV=production node dist/index.js",
+    "test:all": "yarn build && NODE_ENV=test TS_NODE_TRANSPILE_ONLY=true TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' node --require ts-node/register --test $(find tests -type f -name '*.test.ts')",
     "lint": "eslint . --ext .ts",
     "typecheck": "tsc --noEmit"
   },
