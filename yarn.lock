@@ -3323,6 +3323,7 @@ __metadata:
     "@babel/core": "npm:^7.29.0"
     "@babel/plugin-proposal-decorators": "npm:^7.29.0"
     "@babel/plugin-transform-class-properties": "npm:^7.28.6"
+    "@babel/plugin-transform-class-static-block": "npm:^7.28.6"
     "@babel/plugin-transform-classes": "npm:^7.28.6"
     "@babel/preset-env": "npm:^7.29.2"
     "@babel/preset-typescript": "npm:^7.28.5"
