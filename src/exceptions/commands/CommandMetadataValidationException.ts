@@ -4,7 +4,7 @@ import { Exception } from "@/Exception"
 @Except
 export default class CommandMetadataValidationException extends Exception
 {
-  private readonly details: string
+  protected readonly details: string
 
   public constructor(details: string)
   {

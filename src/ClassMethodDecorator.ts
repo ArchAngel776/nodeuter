@@ -15,7 +15,7 @@ export abstract class ClassMethodDecorator<
   Params extends object = {}
 >
 {
-  public readonly params: Params
+  protected readonly params: Params
 
   public constructor(params: Params)
   {
