@@ -1,7 +1,7 @@
 import assert from "node:assert/strict"
 import test from "node:test"
 
-import { Except, Exception } from "../../src/index"
+import { Except, Exception } from "../../dist/index"
 
 type RuntimeDetails = {
   operation: string

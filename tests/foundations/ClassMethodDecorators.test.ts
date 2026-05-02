@@ -6,7 +6,7 @@ import
   ClassMethod,
   ClassMethodDecorator,
   type ClassMethodContext
-} from "../../src/index"
+} from "../../dist/index"
 
 type DemoArguments = [a: number, b: number]
 type DecoratorParams = { multiplier: number }
