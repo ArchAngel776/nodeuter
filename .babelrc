@@ -25,6 +25,7 @@
         "version": "2023-11"
       }
     ],
+    "@babel/plugin-transform-class-static-block",
     "@babel/plugin-transform-class-properties",
     "@babel/plugin-transform-classes"
   ]
