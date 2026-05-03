@@ -18,11 +18,29 @@ import type
   CommandParamParserConstructor,
   CommandResult
 } from "@/Command"
-import CommandParamParser from "@/modules/commands/CommandParamParser"
 import CommandMetadataValidationException from "@/exceptions/commands/CommandMetadataValidationException"
+import CommandParsingException from "@/exceptions/commands/CommandParsingException"
+import CommandRegisterNotFoundException from "@/exceptions/commands/CommandRegisterNotFoundException"
 import { Argument } from "@/decorators/filed/Argument"
 import { Exception } from "@/Exception"
 import { Except } from "@/decorators/class/Except"
+import CommandBootstrap from "@/modules/commands/CommandBootstrap"
+import CommandParamParser from "@/modules/commands/CommandParamParser"
+import CommandParser from "@/modules/commands/CommandParser"
+import CommandRegister from "@/modules/commands/CommandRegister"
+import type
+{
+  CommandConstructor,
+  CommandParams
+} from "@/modules/commands/CommandParser"
+import type
+{
+  CommandBootstrapHook,
+} from "@/modules/commands/CommandBootstrap"
+import type
+{
+  RegisteredCommandConstructor
+} from "@/modules/commands/CommandRegister"
 import { Option } from "@/decorators/filed/Option"
 
 export
@@ -30,8 +48,13 @@ export
   ClassMethod,
   ClassMethodDecorator,
   Command,
-  CommandParamParser,
+  CommandParsingException,
   CommandMetadataValidationException,
+  CommandRegisterNotFoundException,
+  CommandBootstrap,
+  CommandParamParser,
+  CommandParser,
+  CommandRegister,
   Argument,
   Exception,
   Except,
@@ -47,5 +70,9 @@ export type
   CommandMetadataCollection,
   CommandOption,
   CommandParamParserConstructor,
-  CommandResult
+  CommandResult,
+  CommandConstructor,
+  CommandParams,
+  CommandBootstrapHook,
+  RegisteredCommandConstructor
 }

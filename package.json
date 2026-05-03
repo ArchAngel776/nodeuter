@@ -4,8 +4,12 @@
   "description": "A compact, elegant TypeScript backend foundation for Node.js.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "nodeuter": "bin/cli.js"
+  },
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
   "scripts": {
     "clean": "rm -rf dist",
