@@ -1,7 +1,7 @@
 import Command, {
   type CommandMetadata,
   type CommandOption,
-  type CommandParserConstructor
+  type CommandParamParserConstructor
 } from "@/Command"
 import CommandMetadataValidationException from "@/exceptions/commands/CommandMetadataValidationException"
 
@@ -10,7 +10,7 @@ type CommandFieldContext<This extends Command, Type> =
 
 export function Option<Type>(
   flag: string,
-  parser: CommandParserConstructor<Type>
+  parser: CommandParamParserConstructor<Type>
 ): <This extends Command>(
   value: undefined,
   context: CommandFieldContext<This, Type>

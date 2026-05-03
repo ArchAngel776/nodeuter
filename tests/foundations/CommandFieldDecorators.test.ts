@@ -5,11 +5,11 @@ import
 {
   Argument,
   Command,
-  CommandParser,
+  CommandParamParser,
   Option
 } from "../../dist/index"
 
-class NumberParser extends CommandParser<number>
+class NumberParser extends CommandParamParser<number>
 {
   public parse(value: string): number
   {

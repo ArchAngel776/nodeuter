@@ -15,10 +15,10 @@ import type
   CommandMetadataBase,
   CommandMetadataCollection,
   CommandOption,
-  CommandParserConstructor,
+  CommandParamParserConstructor,
   CommandResult
 } from "@/Command"
-import CommandParser from "@/modules/commands/CommandParser"
+import CommandParamParser from "@/modules/commands/CommandParamParser"
 import CommandMetadataValidationException from "@/exceptions/commands/CommandMetadataValidationException"
 import { Argument } from "@/decorators/filed/Argument"
 import { Exception } from "@/Exception"
@@ -30,7 +30,7 @@ export
   ClassMethod,
   ClassMethodDecorator,
   Command,
-  CommandParser,
+  CommandParamParser,
   CommandMetadataValidationException,
   Argument,
   Exception,
@@ -46,6 +46,6 @@ export type
   CommandMetadataBase,
   CommandMetadataCollection,
   CommandOption,
-  CommandParserConstructor,
+  CommandParamParserConstructor,
   CommandResult
 }

@@ -1,14 +1,14 @@
-import type CommandParser from "@/modules/commands/CommandParser"
+import type CommandParamParser from "@/modules/commands/CommandParamParser"
 import CommandMetadataValidationException from "@/exceptions/commands/CommandMetadataValidationException"
 
 export type CommandResult = void | Promise<void>
 
-export type CommandParserConstructor<Type> = new () => CommandParser<Type>
+export type CommandParamParserConstructor<Type> = new () => CommandParamParser<Type>
 
 export type CommandMetadataBase<Type> =
 {
   field: string
-  parser: CommandParserConstructor<Type>
+  parser: CommandParamParserConstructor<Type>
 }
 
 export type CommandOption<Type> = CommandMetadataBase<Type> &
