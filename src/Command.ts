@@ -29,27 +29,18 @@ export type CommandMetadataCollection = readonly CommandMetadata[]
 
 const COMMAND_METADATA = Symbol("command:metadata")
 
-type CommandClass =
-{
-  [COMMAND_METADATA]?: CommandMetadataCollection
-}
-
 export default abstract class Command
 {
+  public static [COMMAND_METADATA]: CommandMetadataCollection = []
+
   public abstract execute(): CommandResult
 
-  public static setCommandMetadata(
-    this: CommandClass,
-    metadata: CommandMetadataCollection
-  ): void
+  public static setCommandMetadata(metadata: CommandMetadataCollection): void
   {
     saveCommandMetadata(this, metadata)
   }
 
-  public static addCommandMetadata(
-    this: CommandClass,
-    ...entries: CommandMetadata[]
-  ): void
+  public static addCommandMetadata(...entries: CommandMetadata[]): void
   {
     const nextMetadata =
     [
@@ -60,12 +51,12 @@ export default abstract class Command
     saveCommandMetadata(this, nextMetadata)
   }
 
-  public static getCommandMetadata(this: CommandClass): CommandMetadataCollection
+  public static getCommandMetadata(): CommandMetadataCollection
   {
     return readCommandMetadata(this)
   }
 
-  public static clearCommandMetadata(this: CommandClass): void
+  public static clearCommandMetadata(): void
   {
     resetCommandMetadata(this)
   }
@@ -113,18 +104,18 @@ function validateCommandMetadata(metadata: CommandMetadataCollection): void
   }
 }
 
-function readCommandMetadata(target: CommandClass): CommandMetadataCollection
+function readCommandMetadata(target: typeof Command): CommandMetadataCollection
 {
   if (Object.prototype.hasOwnProperty.call(target, COMMAND_METADATA) === false)
   {
     return []
   }
 
-  return target[COMMAND_METADATA] ?? []
+  return target[COMMAND_METADATA]
 }
 
 function saveCommandMetadata(
-  target: CommandClass,
+  target: typeof Command,
   metadata: CommandMetadataCollection
 ): void
 {
@@ -132,7 +123,7 @@ function saveCommandMetadata(
   target[COMMAND_METADATA] = [...metadata]
 }
 
-function resetCommandMetadata(target: CommandClass): void
+function resetCommandMetadata(target: typeof Command): void
 {
-  delete target[COMMAND_METADATA]
+  Reflect.deleteProperty(target, COMMAND_METADATA)
 }
