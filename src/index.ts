@@ -7,6 +7,8 @@ import type
 {
   ClassMethodContext
 } from "@/ClassMethodDecorator"
+import type DBDriver from "@/api/database/DBDriver"
+import type Transaction from "@/api/database/Transaction"
 import Command from "@/Command"
 import type
 {
@@ -63,6 +65,8 @@ export
 
 export type
 {
+  DBDriver,
+  Transaction,
   ClassMethodContext,
   CommandArgument,
   CommandMetadata,
