@@ -1,6 +1,6 @@
 import type Transaction from "@/api/database/Transaction"
 
-export default interface DBDriver<Row>
+export default interface DBDriver<Row extends Record<string, unknown>>
 {
   connect(): Promise<void>
   disconnect(): Promise<void>
