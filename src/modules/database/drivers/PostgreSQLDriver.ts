@@ -1,10 +1,18 @@
 import type DBDriver from "@/api/database/DBDriver"
+import type { PostgreSQLConfig } from "@/api/database/drivers/PostgreSQLConfig"
 import type Transaction from "@/api/database/Transaction"
 
 export default class PostgreSQLDriver<
   Row extends Record<string, unknown>
 > implements DBDriver<Row>
 {
+  protected readonly config: PostgreSQLConfig
+
+  public constructor(config: PostgreSQLConfig)
+  {
+    this.config = config
+  }
+
   public async connect(): Promise<void>
   {
     throw new Error("Not implemented")
