@@ -31,6 +31,13 @@ import CommandBootstrap from "@/modules/commands/CommandBootstrap"
 import CommandParamParser from "@/modules/commands/CommandParamParser"
 import CommandParser from "@/modules/commands/CommandParser"
 import CommandRegister from "@/modules/commands/CommandRegister"
+import SecretAccessException from "@/exceptions/security/SecretAccessException"
+import SecretNotFoundException from "@/exceptions/security/SecretNotFoundException"
+import SecretPermissionsException from "@/exceptions/security/SecretPermissionsException"
+import SecretReadException from "@/exceptions/security/SecretReadException"
+import SymbolicSecretException from "@/exceptions/security/SymbolicSecretException"
+import { ALLOWED_SECRET_FILE_MODES } from "@/security/secretFileModes"
+import resolveSecret from "@/security/resolveSecret"
 import type
 {
   CommandConstructor,
@@ -58,6 +65,13 @@ export
   CommandParamParser,
   CommandParser,
   CommandRegister,
+  SecretAccessException,
+  SecretNotFoundException,
+  SecretPermissionsException,
+  SecretReadException,
+  SymbolicSecretException,
+  ALLOWED_SECRET_FILE_MODES,
+  resolveSecret,
   Argument,
   Exception,
   Except,
