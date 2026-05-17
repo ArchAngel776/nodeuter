@@ -1,7 +1,8 @@
 import type DBClient from "@/api/database/DBClient"
+import type Entity from "@/Entity"
 
-export default interface DBDriver<Row extends Record<string, unknown>>
+export default interface DBDriver
 {
-  connect(): Promise<DBClient<Row>>
+  connect<Row extends Entity>(): Promise<DBClient<Row>>
   disconnect(): Promise<void>
 }

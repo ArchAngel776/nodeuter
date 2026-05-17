@@ -1,10 +1,11 @@
 import type DBClient from "@/api/database/DBClient"
 import type Transaction from "@/api/database/Transaction"
 import DBConnectionException from "@/exceptions/database/DBConnectionException"
+import type Entity from "@/Entity"
 import type { PoolClient } from "pg"
 
 export default class PostgreSQLClient<
-  Row extends Record<string, unknown>
+  Row extends Entity
 > implements DBClient<Row>
 {
   protected readonly client: PoolClient
@@ -34,13 +35,7 @@ export default class PostgreSQLClient<
     return new PostgreSQLTransaction(this.client)
   }
 
-  public async create(row: Row): Promise<void>
-  {
-    void row
-    throw new Error("Not implemented")
-  }
-
-  public async createBatch(rows: readonly Row[]): Promise<void>
+  public async create(...rows: readonly Row[]): Promise<void>
   {
     void rows
     throw new Error("Not implemented")

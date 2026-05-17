@@ -12,6 +12,7 @@ import type DBDriver from "@/api/database/DBDriver"
 import type { PostgreSQLConfig } from "@/api/database/drivers/PostgreSQLConfig"
 import type Transaction from "@/api/database/Transaction"
 import Command from "@/Command"
+import Entity from "@/Entity"
 import type
 {
   CommandArgument,
@@ -59,6 +60,7 @@ export
   ClassMethod,
   ClassMethodDecorator,
   Command,
+  Entity,
   CommandParsingException,
   CommandMetadataValidationException,
   CommandRegisterNotFoundException,

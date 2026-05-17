@@ -1,13 +1,12 @@
 import type DBDriver from "@/api/database/DBDriver"
 import type { PostgreSQLConfig } from "@/api/database/drivers/PostgreSQLConfig"
+import type Entity from "@/Entity"
 import DBConnectionException from "@/exceptions/database/DBConnectionException"
 import PostgreSQLClient from "@/modules/database/clients/PostgreSQLClient"
 import resolveSecret from "@/security/resolveSecret"
 import { Pool } from "pg"
 
-export default class PostgreSQLDriver<
-  Row extends Record<string, unknown>
-> implements DBDriver<Row>
+export default class PostgreSQLDriver implements DBDriver
 {
   protected readonly pool: Pool
 
@@ -29,7 +28,7 @@ export default class PostgreSQLDriver<
     )
   }
 
-  public async connect(): Promise<PostgreSQLClient<Row>>
+  public async connect<Row extends Entity>(): Promise<PostgreSQLClient<Row>>
   {
     try
     {
