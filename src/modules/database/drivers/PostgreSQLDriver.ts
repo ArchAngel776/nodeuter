@@ -1,7 +1,7 @@
 import type DBDriver from "@/api/database/DBDriver"
 import type { PostgreSQLConfig } from "@/api/database/drivers/PostgreSQLConfig"
-import type Transaction from "@/api/database/Transaction"
 import DBConnectionException from "@/exceptions/database/DBConnectionException"
+import PostgreSQLClient from "@/modules/database/clients/PostgreSQLClient"
 import resolveSecret from "@/security/resolveSecret"
 import { Pool } from "pg"
 
@@ -29,53 +29,31 @@ export default class PostgreSQLDriver<
     )
   }
 
-  public async connect(): Promise<void>
+  public async connect(): Promise<PostgreSQLClient<Row>>
   {
-    throw new Error("Not implemented")
+    try
+    {
+      const client = await this.pool.connect()
+      return new PostgreSQLClient<Row>(client)
+    }
+    catch (error)
+    {
+      const reason = error instanceof Error ? error.message : "Unknown error"
+      throw new DBConnectionException(`Failed to connect PostgreSQL client from pool: ${reason}`)
+    }
   }
 
   public async disconnect(): Promise<void>
   {
-    throw new Error("Not implemented")
-  }
-
-  public async beginTransaction(): Promise<Transaction>
-  {
-    throw new Error("Not implemented")
-  }
-
-  public async create(row: Row): Promise<void>
-  {
-    void row
-    throw new Error("Not implemented")
-  }
-
-  public async createBatch(rows: readonly Row[]): Promise<void>
-  {
-    void rows
-    throw new Error("Not implemented")
-  }
-
-  public async read(): Promise<Row>
-  {
-    throw new Error("Not implemented")
-  }
-
-  public async readAll(): Promise<Row[]>
-  {
-    throw new Error("Not implemented")
-  }
-
-  public async update(row: Row): Promise<void>
-  {
-    void row
-    throw new Error("Not implemented")
-  }
-
-  public async delete(row: Row): Promise<void>
-  {
-    void row
-    throw new Error("Not implemented")
+    try
+    {
+      await this.pool.end()
+    }
+    catch (error)
+    {
+      const reason = error instanceof Error ? error.message : "Unknown error"
+      throw new DBConnectionException(`Failed to disconnect PostgreSQL pool: ${reason}`)
+    }
   }
 
   protected buildSSLConfig(config: PostgreSQLConfig): boolean | { cert?: string, key?: string, ca?: string }

@@ -7,6 +7,7 @@ import type
 {
   ClassMethodContext
 } from "@/ClassMethodDecorator"
+import type DBClient from "@/api/database/DBClient"
 import type DBDriver from "@/api/database/DBDriver"
 import type { PostgreSQLConfig } from "@/api/database/drivers/PostgreSQLConfig"
 import type Transaction from "@/api/database/Transaction"
@@ -81,6 +82,7 @@ export
 export type
 {
   DBDriver,
+  DBClient,
   PostgreSQLConfig,
   Transaction,
   ClassMethodContext,
