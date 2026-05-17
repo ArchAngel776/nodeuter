@@ -4,9 +4,7 @@ import DBConnectionException from "@/exceptions/database/DBConnectionException"
 import type Entity from "@/Entity"
 import type { PoolClient } from "pg"
 
-export default class PostgreSQLClient<
-  Row extends Entity
-> implements DBClient<Row>
+export default class PostgreSQLClient implements DBClient
 {
   protected readonly client: PoolClient
 
@@ -35,29 +33,24 @@ export default class PostgreSQLClient<
     return new PostgreSQLTransaction(this.client)
   }
 
-  public async create(...rows: readonly Row[]): Promise<void>
+  public async create<Row extends Entity>(...rows: readonly Row[]): Promise<void>
   {
     void rows
     throw new Error("Not implemented")
   }
 
-  public async read(): Promise<Row>
+  public async read<Row extends Entity>(): Promise<Row>
   {
     throw new Error("Not implemented")
   }
 
-  public async readAll(): Promise<Row[]>
-  {
-    throw new Error("Not implemented")
-  }
-
-  public async update(row: Row): Promise<void>
+  public async update<Row extends Entity>(row: Row): Promise<void>
   {
     void row
     throw new Error("Not implemented")
   }
 
-  public async delete(row: Row): Promise<void>
+  public async delete<Row extends Entity>(row: Row): Promise<void>
   {
     void row
     throw new Error("Not implemented")

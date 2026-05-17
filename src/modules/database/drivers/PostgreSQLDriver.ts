@@ -1,6 +1,5 @@
 import type DBDriver from "@/api/database/DBDriver"
 import type { PostgreSQLConfig } from "@/api/database/drivers/PostgreSQLConfig"
-import type Entity from "@/Entity"
 import DBConnectionException from "@/exceptions/database/DBConnectionException"
 import PostgreSQLClient from "@/modules/database/clients/PostgreSQLClient"
 import resolveSecret from "@/security/resolveSecret"
@@ -28,12 +27,12 @@ export default class PostgreSQLDriver implements DBDriver
     )
   }
 
-  public async connect<Row extends Entity>(): Promise<PostgreSQLClient<Row>>
+  public async connect(): Promise<PostgreSQLClient>
   {
     try
     {
       const client = await this.pool.connect()
-      return new PostgreSQLClient<Row>(client)
+      return new PostgreSQLClient(client)
     }
     catch (error)
     {
