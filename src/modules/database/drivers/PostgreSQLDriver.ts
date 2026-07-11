@@ -5,7 +5,7 @@ import PostgreSQLClient from "@/modules/database/clients/PostgreSQLClient"
 import resolveSecret from "@/security/resolveSecret"
 import { Pool } from "pg"
 
-export default class PostgreSQLDriver implements DBDriver
+export default class PostgreSQLDriver implements DBDriver<string>
 {
   protected readonly pool: Pool
 

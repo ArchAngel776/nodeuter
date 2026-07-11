@@ -10,6 +10,7 @@ import type
 import type DBClient from "@/api/database/DBClient"
 import type DBDriver from "@/api/database/DBDriver"
 import type { PostgreSQLConfig } from "@/api/database/drivers/PostgreSQLConfig"
+import type QueryBuilder from "@/api/database/QueryBuilder"
 import type Transaction from "@/api/database/Transaction"
 import Command from "@/Command"
 import Entity from "@/Entity"
@@ -85,6 +86,7 @@ export type
 {
   DBDriver,
   DBClient,
+  QueryBuilder,
   PostgreSQLConfig,
   Transaction,
   ClassMethodContext,
