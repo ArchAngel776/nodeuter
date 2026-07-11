@@ -21,7 +21,7 @@ import type
 import CommandMetadataValidationException from "@/exceptions/commands/CommandMetadataValidationException"
 import CommandParsingException from "@/exceptions/commands/CommandParsingException"
 import CommandRegisterNotFoundException from "@/exceptions/commands/CommandRegisterNotFoundException"
-import { Argument } from "@/decorators/filed/Argument"
+import { Argument } from "@/decorators/field/Argument"
 import { Exception } from "@/Exception"
 import { Except } from "@/decorators/class/Except"
 import CommandBootstrap from "@/modules/commands/CommandBootstrap"
@@ -41,7 +41,7 @@ import type
 {
   RegisteredCommandConstructor
 } from "@/modules/commands/CommandRegister"
-import { Option } from "@/decorators/filed/Option"
+import { Option } from "@/decorators/field/Option"
 
 export
 {
