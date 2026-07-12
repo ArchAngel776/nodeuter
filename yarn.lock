@@ -3437,6 +3437,7 @@ __metadata:
     babel-plugin-typescript-path-aliases: "npm:^1.1.3"
     eslint: "npm:^8.57.1"
     pg: "npm:^8.20.0"
+    pg-query-stream: "npm:^4.16.0"
     ts-node: "npm:^10.9.2"
     tsc-alias: "npm:^1.8.17"
     typescript: "npm:^6.0.3"
@@ -3609,6 +3610,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pg-cursor@npm:^2.21.0":
+  version: 2.21.0
+  resolution: "pg-cursor@npm:2.21.0"
+  peerDependencies:
+    pg: ^8
+  checksum: 10c0/abc916bbec4eb285357b987ab2ea43e515db1ea4b5a5d1f5817db4eb1ad91afb951de98261c221ac7d05912856c6180fb2259c4537ea248d4cae69f53d2beb9c
+  languageName: node
+  linkType: hard
+
 "pg-int8@npm:1.0.1":
   version: 1.0.1
   resolution: "pg-int8@npm:1.0.1"
@@ -3629,6 +3639,17 @@ __metadata:
   version: 1.13.0
   resolution: "pg-protocol@npm:1.13.0"
   checksum: 10c0/a4e851e6bb8ff404ca19d561cf49b6b0caf45163bd3f289889edaf6c4e9fb25b08fb57f50d37a8cc86007efcf2cbb3dd2372c97a353a546f45eb49ddebc84fa9
+  languageName: node
+  linkType: hard
+
+"pg-query-stream@npm:^4.16.0":
+  version: 4.16.0
+  resolution: "pg-query-stream@npm:4.16.0"
+  dependencies:
+    pg-cursor: "npm:^2.21.0"
+  peerDependencies:
+    pg: ^8
+  checksum: 10c0/ff8c7656aa769a855bce33c3db42a3a9a42be4f78a9f796031abb1ad4206701859e09e290263adc1283ba7bdc7bdbab33ec8492241de5bb584d70453878b9c5c
   languageName: node
   linkType: hard
 
