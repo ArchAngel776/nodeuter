@@ -6,6 +6,7 @@ import DBReadException from "@/exceptions/database/DBReadException"
 import DBWriteException from "@/exceptions/database/DBWriteException"
 import type Entity from "@/Entity"
 import type { PoolClient } from "pg"
+import QueryStream from "pg-query-stream"
 
 export default class PostgreSQLClient implements DBClient<string>
 {
@@ -73,9 +74,9 @@ export default class PostgreSQLClient implements DBClient<string>
   {
     try
     {
-      const result = await this.client.query<Row>(query.build())
+      const stream = this.client.query(new QueryStream(query.build()))
 
-      for (const row of result.rows)
+      for await (const row of stream as AsyncIterable<Row>)
       {
         yield row
       }
