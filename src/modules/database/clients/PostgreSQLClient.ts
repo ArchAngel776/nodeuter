@@ -24,9 +24,11 @@ export default class PostgreSQLClient implements DBClient<string>
 
   public async beginTransaction(): Promise<Transaction>
   {
+    const transaction = new PostgreSQLTransaction(this.client)
+
     try
     {
-      await this.client.query("BEGIN")
+      await transaction.begin()
     }
     catch (error)
     {
@@ -34,7 +36,7 @@ export default class PostgreSQLClient implements DBClient<string>
       throw new DBConnectionException(`Failed to begin PostgreSQL transaction: ${reason}`)
     }
 
-    return new PostgreSQLTransaction(this.client)
+    return transaction
   }
 
   public async create(query: QueryBuilder<string>): Promise<void>
@@ -96,6 +98,11 @@ export class PostgreSQLTransaction implements Transaction
   public constructor(client: PoolClient)
   {
     this.client = client
+  }
+
+  public async begin(): Promise<void>
+  {
+    await this.client.query("BEGIN")
   }
 
   public async commit(): Promise<void>
