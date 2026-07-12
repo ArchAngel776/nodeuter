@@ -11,6 +11,12 @@ import type DBClient from "@/api/database/DBClient"
 import type DBDriver from "@/api/database/DBDriver"
 import type { PostgreSQLConfig } from "@/api/database/drivers/PostgreSQLConfig"
 import type QueryBuilder from "@/api/database/QueryBuilder"
+import type ReadQueryBuilder from "@/api/database/query/ReadQueryBuilder"
+import type
+{
+  ConditionBlockReadQueryBuilder,
+  ConditionsReadQueryBuilder
+} from "@/api/database/query/ReadQueryBuilder"
 import type Transaction from "@/api/database/Transaction"
 import Command from "@/Command"
 import Entity from "@/Entity"
@@ -87,6 +93,9 @@ export type
   DBDriver,
   DBClient,
   QueryBuilder,
+  ReadQueryBuilder,
+  ConditionBlockReadQueryBuilder,
+  ConditionsReadQueryBuilder,
   PostgreSQLConfig,
   Transaction,
   ClassMethodContext,
